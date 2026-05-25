@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>내 3D 목업 포트폴리오</title>
+    <style>
+        /* 웹사이트 기본 세팅 */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #111; /* 배경색 (원하는 색으로 변경 가능) */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* 3D 박스 크기 조절 및 로고 잘라내기용 방어막 */
+        .mockup-container {
+            position: relative;
+            width: 800px;  /* 목업 가로 크기 */
+            height: 600px; /* 목업 세로 크기 */
+            border-radius: 12px;
+            overflow: hidden; /* 🌟 중요: 이 영역을 벗어나는 하단 로고를 잘라버림 */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        /* 스플라인 임베드 코드 스타일 */
+        .mockup-container iframe {
+            width: 100%;
+            height: 110%; /* 🌟 일부러 실제 박스보다 10% 더 길게 만들어서 아래로 밀어버림 */
+            border: none;
+            margin-bottom: -50px; /* 밑부분 숨기기 */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="mockup-container">
+        <iframe src='https://my.spline.design/distortingtypography-lroDAPb5KejqLbKvXAhaLDWj/' frameborder='0'></iframe>
+    </div>
+
+</body>
+</html>
