@@ -1,0 +1,60 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+const posts = await getCollection("blog");
+posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<BaseLayout title="Blog | Rosalyn Jeon">
+  <section class="hero">
+    <p class="eyebrow">Blog</p>
+    <h1>Notes on digital experience, UX, marketing and building better websites.</h1>
+  </section>
+
+  <section class="post-list">
+    {posts.map((post) => (
+      <a class="post-card" href={`/blog/${post.id}/`}>
+        <p class="date">{post.data.pubDate.toLocaleDateString()}</p>
+        <h2>{post.data.title}</h2>
+        <p>{post.data.description}</p>
+      </a>
+    ))}
+  </section>
+</BaseLayout>
+
+<style>
+  .post-list {
+    display: grid;
+    gap: 18px;
+    margin-top: 72px;
+  }
+
+  .post-card {
+    display: block;
+    padding: 28px;
+    border-radius: 28px;
+    background: white;
+    border: 1px solid rgba(17, 17, 17, 0.08);
+    text-decoration: none;
+    color: #111;
+    box-shadow: 0 20px 60px rgba(17, 17, 17, 0.06);
+  }
+
+  .date {
+    color: #9ca3af;
+    font-weight: 700;
+    margin: 0 0 24px;
+  }
+
+  .post-card h2 {
+    font-size: 32px;
+    letter-spacing: -0.04em;
+    margin: 0 0 12px;
+  }
+
+  .post-card p {
+    color: #4b5563;
+    line-height: 1.6;
+  }
+</style>
